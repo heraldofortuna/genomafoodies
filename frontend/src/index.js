@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+// Pages
+import Home from "./pages/Home";
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>Genoma Foodies</h1>
+    <Home />
   </React.StrictMode>,
   document.getElementById("root")
 );
