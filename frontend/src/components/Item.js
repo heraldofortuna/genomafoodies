@@ -1,13 +1,13 @@
 import React from "react";
 
-const ItemRestaurants = ({ restaurant }) => {
+const Item = ({ restaurant }) => {
   return (
     <li>
       <h2>{restaurant.title}</h2>
       <p>{restaurant.location}</p>
       <p>{restaurant.food_type}</p>
-      <p>{restaurant.score}</p>
-      <p>{restaurant.visited}</p>
+      <p>{restaurant.score}/5</p>
+      <input type="checkbox" checked={restaurant.visited} readOnly />
       <div>
         <button>Edit</button>
         <button>Delete</button>
@@ -16,4 +16,4 @@ const ItemRestaurants = ({ restaurant }) => {
   );
 };
 
-export default ItemRestaurants;
+export default Item;
