@@ -7,4 +7,4 @@ class GenomafoodiesAdmin(admin.ModelAdmin):
 
 
 # Register your models here.
-admin.site.register(Todo, TodoAdmin)
+admin.site.register(Genomafoodies, GenomafoodiesAdmin)
