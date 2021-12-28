@@ -9,13 +9,16 @@ const Home = () => {
   const refreshList = () => {
     axios
       .get("/api/genomafoodies/")
-      .then((res) => setRestaurants(res.data))
+      .then((res) => {
+        console.log(res);
+        setRestaurants(res.data);
+      })
       .catch((err) => console.log(err));
   };
 
   useEffect(() => {
     refreshList();
-  });
+  }, []);
 
   return (
     <>

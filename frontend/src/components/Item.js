@@ -4,7 +4,7 @@ const Item = ({ restaurant }) => {
   return (
     <li>
       <h2>{restaurant.title}</h2>
-      <p>{restaurant.location}</p>
+      <p>{restaurant.ubication}</p>
       <p>{restaurant.food_type}</p>
       <p>{restaurant.score}/5</p>
       <input type="checkbox" checked={restaurant.visited} readOnly />
