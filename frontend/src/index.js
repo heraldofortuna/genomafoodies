@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-// Pages
 import Home from "./pages/Home";
 
 ReactDOM.render(

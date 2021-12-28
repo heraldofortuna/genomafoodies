@@ -8,6 +8,10 @@ const ItemRestaurants = ({ restaurant }) => {
       <p>{restaurant.food_type}</p>
       <p>{restaurant.score}</p>
       <p>{restaurant.visited}</p>
+      <div>
+        <button>Edit</button>
+        <button>Delete</button>
+      </div>
     </li>
   );
 };

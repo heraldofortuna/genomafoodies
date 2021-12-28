@@ -1,5 +1,4 @@
 import React from "react";
-// Components
 import ListRestaurants from "../components/ListRestaurants";
 
 const Home = () => {
