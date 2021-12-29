@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { newRestaurant } from "../services/RestaurantServices";
+import { Link, useNavigate } from "react-router-dom";
+import { addRestaurant } from "../services/RestaurantServices";
 
 const Form = () => {
   const initialState = {
@@ -13,10 +13,12 @@ const Form = () => {
   };
 
   const [newRestaurant, setNewRestaurant] = useState(initialState);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    newRestaurant(newRestaurant);
+    addRestaurant(newRestaurant);
+    navigate("/");
   };
 
   const handleChange = (event) => {

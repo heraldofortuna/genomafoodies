@@ -1,34 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import Item from "../components/Item";
+import { getRestaurants } from "../services/RestaurantServices";
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [restaurants, setRestaurants] = useState([]);
 
-  const refreshList = () => {
-    axios
-      .get("/api/genomafoodies/")
-      .then((res) => {
-        console.log(res);
-        setRestaurants(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
-
   useEffect(() => {
-    refreshList();
+    const loadRestaurants = async () => {
+      const response = await getRestaurants();
+
+      if (response.status === 200) {
+        setRestaurants(response.data);
+      }
+
+      setIsLoading(false);
+    };
+
+    loadRestaurants();
   }, []);
 
   return (
     <>
       <h1>Home</h1>
       <Link to="/new">Add restaurant</Link>
-      <ul>
-        {restaurants.map((restaurant) => (
-          <Item key={restaurant.id} restaurant={restaurant} />
-        ))}
-      </ul>
+      {isLoading ? (
+        <p>Is loading ...</p>
+      ) : !restaurants.length ? (
+        <p>You don't have restaurants in your list</p>
+      ) : (
+        <ul>
+          {restaurants.map((restaurant) => (
+            <Item key={restaurant.id} restaurant={restaurant} />
+          ))}
+        </ul>
+      )}
     </>
   );
 };
