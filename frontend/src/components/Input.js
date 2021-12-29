@@ -1,6 +1,17 @@
 import React from "react";
 
-const Input = ({ type = "text", name, value, onChange, checked = false }) => {
+const Input = ({
+  type = "text",
+  name,
+  value,
+  minLength,
+  maxLength,
+  pattern,
+  min,
+  max,
+  checked = false,
+  onChange,
+}) => {
   const characters = name.split("_").join(" ");
   const label = characters.charAt(0).toUpperCase() + characters.slice(1);
 
@@ -11,8 +22,13 @@ const Input = ({ type = "text", name, value, onChange, checked = false }) => {
         type={type}
         name={name}
         value={value}
-        onChange={onChange}
+        minLength={minLength}
+        maxLength={maxLength}
+        pattern={pattern}
+        min={min}
+        max={max}
         checked={checked}
+        onChange={onChange}
       />
     </div>
   );

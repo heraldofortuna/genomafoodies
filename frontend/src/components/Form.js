@@ -18,7 +18,7 @@ const Form = ({ isToEdit, restaurant }) => {
   const { title, ubication, food_type, score, visited } = newRestaurant;
   const currentId = restaurant?.id;
   const navigate = useNavigate();
-  
+
   const handleChange = (event) => {
     let { name, value, checked } = event.target;
     setNewRestaurant((prevRestaurant) => ({
@@ -41,10 +41,28 @@ const Form = ({ isToEdit, restaurant }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input name="title" value={title} onChange={handleChange} />
-      <Input name="ubication" value={ubication} onChange={handleChange} />
+      <Input
+        name="title"
+        value={title}
+        minLength={1}
+        maxLength={20}
+        onChange={handleChange}
+      />
+      <Input
+        name="ubication"
+        value={ubication}
+        pattern="(([a-zA-Z]+) ?)+, ?([a-zA-Z])\w+"
+        onChange={handleChange}
+      />
       <Input name="food_type" value={food_type} onChange={handleChange} />
-      <Input name="score" value={score} onChange={handleChange} />
+      <Input
+        type="number"
+        name="score"
+        value={score}
+        min={0}
+        max={5}
+        onChange={handleChange}
+      />
       <Input
         type="checkbox"
         name="visited"
