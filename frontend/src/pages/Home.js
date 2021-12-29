@@ -25,7 +25,7 @@ const Home = () => {
   }, []);
 
   const handleDelete = async (restaurant) => {
-    await deleteRestaurant(restaurant);
+    await deleteRestaurant(restaurant.id);
     loadRestaurants();
   };
 

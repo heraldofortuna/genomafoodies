@@ -13,12 +13,12 @@ export const getRestaurants = async () => {
   }
 };
 
-export const addRestaurant = async (data) => {
+export const addRestaurant = async (newItem) => {
   try {
     const response = await axios({
       url: "/api/genomafoodies/",
       method: "POST",
-      data: data,
+      data: newItem,
     });
 
     return response;
@@ -27,10 +27,24 @@ export const addRestaurant = async (data) => {
   }
 };
 
-export const deleteRestaurant = async (item) => {
+export const updateRestaurant = async (newItem, itemId) => {
   try {
     const response = await axios({
-      url: `/api/genomafoodies/${item.id}`,
+      url: `/api/genomafoodies/${itemId}/`,
+      method: "PUT",
+      data: newItem,
+    });
+
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const deleteRestaurant = async (itemId) => {
+  try {
+    const response = await axios({
+      url: `/api/genomafoodies/${itemId}/`,
       method: "DELETE",
     });
 

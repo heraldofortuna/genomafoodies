@@ -1,32 +1,49 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { addRestaurant } from "../services/RestaurantServices";
+import {
+  addRestaurant,
+  updateRestaurant,
+} from "../services/RestaurantServices";
 
-const Form = () => {
-  const initialState = {
-    id: 10,
-    title: "insert title",
-    ubication: "insert ubication",
-    food_type: "insert food type",
-    score: 0,
-    visited: false,
-  };
+const Form = ({ isToEdit, currentRestaurant }) => {
+  const initialState = isToEdit
+    ? {
+        title: currentRestaurant.title,
+        ubication: currentRestaurant.ubication,
+        food_type: currentRestaurant.food_type,
+        score: currentRestaurant.score,
+        visited: currentRestaurant.visited,
+      }
+    : {
+        title: "",
+        ubication: "",
+        food_type: "",
+        score: 0,
+        visited: false,
+      };
 
   const [newRestaurant, setNewRestaurant] = useState(initialState);
   const navigate = useNavigate();
+  const currentId = currentRestaurant?.id;
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    addRestaurant(newRestaurant);
+
+    if (isToEdit) {
+      await updateRestaurant(newRestaurant, currentId);
+    } else {
+      await addRestaurant(newRestaurant);
+    }
+
     navigate("/");
   };
 
   const handleChange = (event) => {
-    let { name, value } = event.target;
+    let { name, value, checked } = event.target;
 
     setNewRestaurant((prevRestaurant) => ({
       ...prevRestaurant,
-      [name]: value,
+      [name]: name === "visited" ? checked : value,
     }));
   };
 
@@ -67,9 +84,10 @@ const Form = () => {
       <div>
         <label>Visited</label>
         <input
+          type="checkbox"
           name="visited"
-          value={newRestaurant.visited}
           onChange={handleChange}
+          checked={newRestaurant.visited}
         />
       </div>
       <button type="submit">Save</button>
