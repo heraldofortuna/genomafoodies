@@ -1,6 +1,6 @@
 import React from "react";
 
-const Item = ({ restaurant }) => {
+const Item = ({ restaurant, handleDelete }) => {
   return (
     <li>
       <h2>{restaurant.title}</h2>
@@ -10,7 +10,7 @@ const Item = ({ restaurant }) => {
       <input type="checkbox" checked={restaurant.visited} readOnly />
       <div>
         <button>Edit</button>
-        <button>Delete</button>
+        <button onClick={() => handleDelete(restaurant)}>Delete</button>
       </div>
     </li>
   );

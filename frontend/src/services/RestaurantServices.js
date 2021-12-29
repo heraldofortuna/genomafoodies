@@ -26,3 +26,16 @@ export const addRestaurant = async (data) => {
     console.log(err);
   }
 };
+
+export const deleteRestaurant = async (item) => {
+  try {
+    const response = await axios({
+      url: `/api/genomafoodies/${item.id}`,
+      method: "DELETE",
+    });
+
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+};

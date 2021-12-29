@@ -1,25 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Item from "../components/Item";
-import { getRestaurants } from "../services/RestaurantServices";
+import {
+  getRestaurants,
+  deleteRestaurant,
+} from "../services/RestaurantServices";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [restaurants, setRestaurants] = useState([]);
 
+  const loadRestaurants = async () => {
+    const response = await getRestaurants();
+
+    if (response.status === 200) {
+      setRestaurants(response.data);
+    }
+
+    setIsLoading(false);
+  };
+
   useEffect(() => {
-    const loadRestaurants = async () => {
-      const response = await getRestaurants();
-
-      if (response.status === 200) {
-        setRestaurants(response.data);
-      }
-
-      setIsLoading(false);
-    };
-
     loadRestaurants();
   }, []);
+
+  const handleDelete = async (restaurant) => {
+    await deleteRestaurant(restaurant);
+    loadRestaurants();
+  };
 
   return (
     <>
@@ -32,7 +40,11 @@ const Home = () => {
       ) : (
         <ul>
           {restaurants.map((restaurant) => (
-            <Item key={restaurant.id} restaurant={restaurant} />
+            <Item
+              key={restaurant.id}
+              restaurant={restaurant}
+              handleDelete={handleDelete}
+            />
           ))}
         </ul>
       )}
