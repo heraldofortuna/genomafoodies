@@ -1,30 +1,32 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Input from "./Input";
 import {
   addRestaurant,
   updateRestaurant,
 } from "../services/RestaurantServices";
 
-const Form = ({ isToEdit, currentRestaurant }) => {
-  const initialState = isToEdit
-    ? {
-        title: currentRestaurant.title,
-        ubication: currentRestaurant.ubication,
-        food_type: currentRestaurant.food_type,
-        score: currentRestaurant.score,
-        visited: currentRestaurant.visited,
-      }
-    : {
-        title: "",
-        ubication: "",
-        food_type: "",
-        score: 0,
-        visited: false,
-      };
+const Form = ({ isToEdit, restaurant }) => {
+  const [newRestaurant, setNewRestaurant] = useState({
+    title: isToEdit ? restaurant.title : "",
+    ubication: isToEdit ? restaurant.ubication : "",
+    food_type: isToEdit ? restaurant.food_type : "",
+    score: isToEdit ? restaurant.score : 0,
+    visited: isToEdit ? restaurant.visited : false,
+  });
 
-  const [newRestaurant, setNewRestaurant] = useState(initialState);
+  const { title, ubication, food_type, score, visited } = newRestaurant;
+  const currentId = restaurant?.id;
   const navigate = useNavigate();
-  const currentId = currentRestaurant?.id;
+  
+  const handleChange = (event) => {
+    let { name, value, checked } = event.target;
+
+    setNewRestaurant((prevRestaurant) => ({
+      ...prevRestaurant,
+      [name]: name === "visited" ? checked : value,
+    }));
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -38,58 +40,18 @@ const Form = ({ isToEdit, currentRestaurant }) => {
     navigate("/");
   };
 
-  const handleChange = (event) => {
-    let { name, value, checked } = event.target;
-
-    setNewRestaurant((prevRestaurant) => ({
-      ...prevRestaurant,
-      [name]: name === "visited" ? checked : value,
-    }));
-  };
-
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label>Title</label>
-        <input
-          name="title"
-          value={newRestaurant.title}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Ubication</label>
-        <input
-          name="ubication"
-          value={newRestaurant.ubication}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Food Type</label>
-        <input
-          name="food_type"
-          value={newRestaurant.food_type}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Score</label>
-        <input
-          name="score"
-          value={newRestaurant.score}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Visited</label>
-        <input
-          type="checkbox"
-          name="visited"
-          onChange={handleChange}
-          checked={newRestaurant.visited}
-        />
-      </div>
+      <Input name="title" value={title} onChange={handleChange} />
+      <Input name="ubication" value={ubication} onChange={handleChange} />
+      <Input name="food_type" value={food_type} onChange={handleChange} />
+      <Input name="score" value={score} onChange={handleChange} />
+      <Input
+        type="checkbox"
+        name="visited"
+        checked={visited}
+        onChange={handleChange}
+      />
       <button type="submit">Save</button>
       <Link to="/">Cancel</Link>
     </form>
