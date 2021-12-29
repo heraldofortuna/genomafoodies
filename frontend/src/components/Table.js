@@ -1,36 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Table = ({ restaurants, handleDelete }) => {
+const Table = ({ data, handleDelete }) => {
+  const [restaurants, setRestaurants] = useState(data);
+  const [ascendant, setAscendant] = useState(true);
+
+  const sortingTable = (column) => {
+    const sorted = [...restaurants].sort((a, b) => {
+      const columnA = a[column].toLocaleString();
+      const columnB = b[column].toLocaleString();
+      return ascendant
+        ? columnA.localeCompare(columnB)
+        : columnB.localeCompare(columnA);
+    });
+    setRestaurants(sorted);
+    setAscendant(!ascendant);
+  };
+
   return (
     <table>
       <thead>
         <tr>
-          <th>Title</th>
-          <th>Location</th>
-          <th>Type food</th>
-          <th>Score</th>
-          <th>Visited</th>
+          <th onClick={() => sortingTable("title")}>Title</th>
+          <th onClick={() => sortingTable("ubication")}>Ubication</th>
+          <th onClick={() => sortingTable("food_type")}>Food type</th>
+          <th onClick={() => sortingTable("score")}>Score</th>
+          <th onClick={() => sortingTable("visited")}>Visited</th>
         </tr>
       </thead>
       <tbody>
-        {restaurants.map((restaurant) => (
-          <tr key={restaurant.id}>
-            <td>{restaurant.title}</td>
-            <td>{restaurant.location}</td>
-            <td>{restaurant.type_food}</td>
-            <td>{restaurant.score}</td>
-            <td>
-              <input type="checkbox" checked={restaurant.visited} readOnly />
-            </td>
-            <td>
-              <Link to={`/edit/${restaurant.id}`} state={restaurant}>
-                <button>Edit</button>
-              </Link>
-              <button onClick={() => handleDelete(restaurant)}>Delete</button>
-            </td>
-          </tr>
-        ))}
+        {restaurants.map((restaurant) => {
+          const { title, ubication, food_type, score, visited } = restaurant;
+          return (
+            <tr key={restaurant.id}>
+              <td>{title}</td>
+              <td>{ubication}</td>
+              <td>{food_type}</td>
+              <td>{score}</td>
+              <td>
+                <input type="checkbox" checked={visited} readOnly />
+              </td>
+              <td>
+                <Link to={`/edit/${restaurant.id}`} state={restaurant}>
+                  <button>Edit</button>
+                </Link>
+                <button onClick={() => handleDelete(restaurant)}>Delete</button>
+              </td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );

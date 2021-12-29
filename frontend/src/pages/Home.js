@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Table from "../components/Table";
-import Item from "../components/Item";
 import {
   getRestaurants,
   deleteRestaurant,
@@ -25,22 +24,6 @@ const Home = () => {
     loadRestaurants();
   }, []);
 
-  const sortByAscending = () => {
-    const sortedAsceding = [...restaurants].sort((a, b) =>
-      a.title.localeCompare(b.title)
-    );
-
-    setRestaurants(sortedAsceding);
-  };
-
-  const sortByDescending = () => {
-    const sortedDescending = [...restaurants].sort((a, b) =>
-      b.title.localeCompare(a.title)
-    );
-
-    setRestaurants(sortedDescending);
-  };
-
   const handleDelete = async (restaurant) => {
     await deleteRestaurant(restaurant.id);
     loadRestaurants();
@@ -55,13 +38,7 @@ const Home = () => {
       ) : !restaurants.length ? (
         <p>You don't have restaurants in your list</p>
       ) : (
-        <>
-          <div>
-            <button onClick={() => sortByAscending()}>ASC</button>
-            <button onClick={() => sortByDescending()}>DESC</button>
-          </div>
-          <Table restaurants={restaurants} handleDelete={handleDelete} />
-        </>
+        <Table data={restaurants} handleDelete={handleDelete} />
       )}
     </>
   );
