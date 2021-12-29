@@ -1,9 +1,8 @@
 import React from "react";
 
 const Input = ({ type = "text", name, value, onChange, checked = false }) => {
-  const label =
-    name.split("_").join(" ").charAt(0).toUpperCase() +
-    name.split("_").join(" ").slice(1);
+  const characters = name.split("_").join(" ");
+  const label = characters.charAt(0).toUpperCase() + characters.slice(1);
 
   return (
     <div>

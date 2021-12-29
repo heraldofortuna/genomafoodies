@@ -21,7 +21,6 @@ const Form = ({ isToEdit, restaurant }) => {
   
   const handleChange = (event) => {
     let { name, value, checked } = event.target;
-
     setNewRestaurant((prevRestaurant) => ({
       ...prevRestaurant,
       [name]: name === "visited" ? checked : value,
