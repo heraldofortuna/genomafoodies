@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Table from "../components/Table";
 import Item from "../components/Item";
 import {
   getRestaurants,
@@ -59,15 +60,7 @@ const Home = () => {
             <button onClick={() => sortByAscending()}>ASC</button>
             <button onClick={() => sortByDescending()}>DESC</button>
           </div>
-          <ul>
-            {restaurants.map((restaurant) => (
-              <Item
-                key={restaurant.id}
-                restaurant={restaurant}
-                handleDelete={handleDelete}
-              />
-            ))}
-          </ul>
+          <Table restaurants={restaurants} handleDelete={handleDelete} />
         </>
       )}
     </>
