@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;700;900&display=swap");
+:root {
+  --font-principal: "Roboto", sans-serif;
+  --font-secondary: "Inter", sans-serif;
+
+  --color-blue: #3c4697;
+  --color-green: #50af47;
+  --color-red: #cc1336;
+  --color-gray: #6b737a;
+  --color-white: #fffffd;
+  --color-black: #292c33;
+}
+
+* {
+  color: var(--color-black);
+  font-family: var(--font-principal);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}

@@ -7,26 +7,24 @@ import {
   updateRestaurant,
 } from "../services/RestaurantServices";
 
-const Form = ({ isToEdit, restaurant }) => {
+const Form = ({ isToEdit, data }) => {
   const [newRestaurant, setNewRestaurant] = useState({
-    title: isToEdit ? restaurant.title : "",
-    ubication: isToEdit ? restaurant.ubication : "",
-    food_type: isToEdit ? restaurant.food_type : "",
-    score: isToEdit ? restaurant.score : 0,
-    visited: isToEdit ? restaurant.visited : false,
+    title: isToEdit ? data.title : "",
+    ubication: isToEdit ? data.ubication : "",
+    food_type: isToEdit ? data.food_type : "",
+    score: isToEdit ? data.score : 0,
+    visited: isToEdit ? data.visited : false,
   });
 
   const { title, ubication, food_type, score, visited } = newRestaurant;
-  const currentId = restaurant?.id;
+  const currentId = data?.id;
   const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value, id, checked } = event.target;
-    const key = id === "food_type" ? id : name;
-    setNewRestaurant((prevRestaurant) => ({
-      ...prevRestaurant,
-      [key]: name === "visited" ? checked : value,
-    }));
+    const newKey = id === "food_type" ? id : name;
+    const newValue = name === "visited" ? checked : value;
+    setNewRestaurant({ ...newRestaurant, [newKey]: newValue });
   };
 
   const handleSubmit = async (event) => {

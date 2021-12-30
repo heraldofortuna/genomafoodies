@@ -8,6 +8,8 @@ const FilterBar = ({ handleFilter }) => {
     food_type: "",
   });
 
+  const { title, ubication, food_type } = filter;
+
   const onChangeFilter = (event) => {
     const { name, value } = event.target;
     const newFilter = { ...filter, [name]: value };
@@ -17,17 +19,9 @@ const FilterBar = ({ handleFilter }) => {
 
   return (
     <div>
-      <Input name="title" value={filter.title} onChange={onChangeFilter} />
-      <Input
-        name="ubication"
-        value={filter.ubication}
-        onChange={onChangeFilter}
-      />
-      <Input
-        name="food_type"
-        value={filter.food_type}
-        onChange={onChangeFilter}
-      />
+      <Input name="title" value={title} onChange={onChangeFilter} />
+      <Input name="ubication" value={ubication} onChange={onChangeFilter} />
+      <Input name="food_type" value={food_type} onChange={onChangeFilter} />
     </div>
   );
 };
