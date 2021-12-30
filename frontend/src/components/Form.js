@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "./Input";
+import Select from "./Select";
 import {
   addRestaurant,
   updateRestaurant,
@@ -15,27 +16,26 @@ const Form = ({ isToEdit, restaurant }) => {
     visited: isToEdit ? restaurant.visited : false,
   });
 
-  const { title, ubication, food_type, score, visited } = newRestaurant;
+  const { title, ubication, score, visited } = newRestaurant;
   const currentId = restaurant?.id;
   const navigate = useNavigate();
 
   const handleChange = (event) => {
-    let { name, value, checked } = event.target;
+    const { name, value, id, checked } = event.target;
+    const key = id === "food_type" ? id : name;
     setNewRestaurant((prevRestaurant) => ({
       ...prevRestaurant,
-      [name]: name === "visited" ? checked : value,
+      [key]: name === "visited" ? checked : value,
     }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     if (isToEdit) {
       await updateRestaurant(newRestaurant, currentId);
     } else {
       await addRestaurant(newRestaurant);
     }
-
     navigate("/");
   };
 
@@ -44,6 +44,7 @@ const Form = ({ isToEdit, restaurant }) => {
       <Input
         name="title"
         value={title}
+        placeholder="ej. Cala"
         minLength={1}
         maxLength={20}
         onChange={handleChange}
@@ -51,14 +52,16 @@ const Form = ({ isToEdit, restaurant }) => {
       <Input
         name="ubication"
         value={ubication}
-        pattern="(([a-zA-Z]+) ?)+, ?([a-zA-Z])\w+"
+        placeholder="ej. Lima, Peru"
+        pattern="(([a-zA-Z]+) ?)+, ?(([a-zA-Z]+) ?)+"
         onChange={handleChange}
       />
-      <Input name="food_type" value={food_type} onChange={handleChange} />
+      <Select name="food_type" onChange={handleChange} />
       <Input
         type="number"
         name="score"
         value={score}
+        placeholder="ej. 4"
         min={0}
         max={5}
         onChange={handleChange}

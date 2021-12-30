@@ -4,6 +4,7 @@ const Input = ({
   type = "text",
   name,
   value,
+  placeholder,
   minLength,
   maxLength,
   pattern,
@@ -12,8 +13,7 @@ const Input = ({
   checked = false,
   onChange,
 }) => {
-  const characters = name.split("_").join(" ");
-  const label = characters.charAt(0).toUpperCase() + characters.slice(1);
+  const label = name.charAt(0).toUpperCase() + name.slice(1);
 
   return (
     <div>
@@ -22,6 +22,7 @@ const Input = ({
         type={type}
         name={name}
         value={value}
+        placeholder={placeholder}
         minLength={minLength}
         maxLength={maxLength}
         pattern={pattern}
