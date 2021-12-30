@@ -3,10 +3,10 @@
 @import url("./button.css");
 
 :root {
-  --font-principal: "Roboto", sans-serif;
-  --font-secondary: "Inter", sans-serif;
   --font-body: normal normal normal 16px/20px "Roboto", sans-serif;
   --font-button: normal normal normal 14px/18px "Inter", sans-serif;
+  --font-input-label: normal normal normal 14px/18px "Inter", sans-serif;
+  --font-input-element: normal normal normal 14px/18px "Roboto", sans-serif;
   --font-table-head: normal normal 700 16px/20px "Inter", sans-serif;
   --font-table-body: normal normal 400 14px/18px "Roboto", sans-serif;
 

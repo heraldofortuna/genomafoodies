@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/input.css";
 
 const Input = ({
   type = "text",
@@ -17,9 +18,10 @@ const Input = ({
   const label = characters.charAt(0).toUpperCase() + characters.slice(1);
 
   return (
-    <div>
-      <label>{label}</label>
+    <div className="input__container">
+      <label className="input__label">{label}</label>
       <input
+        className="input__element"
         type={type}
         name={name}
         value={value}
