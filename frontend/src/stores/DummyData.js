@@ -1,4 +1,4 @@
-const genomafoodiesItems = [
+const dummy = [
   {
     id: 1,
     title: "Restaurant 1",
@@ -41,4 +41,4 @@ const genomafoodiesItems = [
   },
 ];
 
-export default genomafoodiesItems;
+export default dummy;

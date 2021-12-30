@@ -16,7 +16,7 @@ const Form = ({ isToEdit, restaurant }) => {
     visited: isToEdit ? restaurant.visited : false,
   });
 
-  const { title, ubication, score, visited } = newRestaurant;
+  const { title, ubication, food_type, score, visited } = newRestaurant;
   const currentId = restaurant?.id;
   const navigate = useNavigate();
 
@@ -56,7 +56,11 @@ const Form = ({ isToEdit, restaurant }) => {
         pattern="(([a-zA-Z]+) ?)+, ?(([a-zA-Z]+) ?)+"
         onChange={handleChange}
       />
-      <Select name="food_type" onChange={handleChange} />
+      <Select
+        name="food_type"
+        defaultValue={food_type}
+        onChange={handleChange}
+      />
       <Input
         type="number"
         name="score"
