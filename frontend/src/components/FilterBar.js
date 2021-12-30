@@ -1,16 +1,35 @@
 import React, { useState } from "react";
 import Input from "./Input";
 
-const FilterBar = ({ onTitleFilter }) => {
-  const [title, setTitle] = useState("");
+const FilterBar = ({ handleFilter }) => {
+  const [filter, setFilter] = useState({
+    title: "",
+    ubication: "",
+    food_type: "",
+  });
 
-  const handleFilterChange = (event) => {
-    const { value } = event.target;
-    setTitle(value);
-    onTitleFilter(value);
+  const onChangeFilter = (event) => {
+    const { name, value } = event.target;
+    const newFilter = { ...filter, [name]: value };
+    setFilter(newFilter);
+    handleFilter(newFilter);
   };
 
-  return <Input name="title" value={title} onChange={handleFilterChange} />;
+  return (
+    <div>
+      <Input name="title" value={filter.title} onChange={onChangeFilter} />
+      <Input
+        name="ubication"
+        value={filter.ubication}
+        onChange={onChangeFilter}
+      />
+      <Input
+        name="food_type"
+        value={filter.food_type}
+        onChange={onChangeFilter}
+      />
+    </div>
+  );
 };
 
 export default FilterBar;

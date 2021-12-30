@@ -17,21 +17,31 @@ const Home = () => {
     setIsLoading(false);
   };
 
-  useEffect(() => {
-    loadRestaurants();
-  }, []);
+  useEffect(() => loadRestaurants(), []);
 
   const handleDelete = async (restaurant) => {
     await deleteRestaurant(restaurant.id);
     loadRestaurants();
   };
 
-  const handleFilterTitle = async (title) => {
+  const handleFilter = async (filter) => {
     const response = await getRestaurants();
-    const filteredData = response.data.filter((restaurant) => {
-      let lowerTitle = restaurant.title.toLowerCase();
-      if (lowerTitle.includes(title.toLowerCase())) return restaurant;
-    });
+    const filteredData = response.data
+      .filter((restaurant) => {
+        const currentTitle = restaurant.title.toLowerCase();
+        const filteredTitle = filter.title.toLowerCase();
+        if (currentTitle.includes(filteredTitle)) return restaurant;
+      })
+      .filter((restaurant) => {
+        const currentRestaurant = restaurant.ubication.toLowerCase();
+        const filteredRestaurant = filter.ubication.toLowerCase();
+        if (currentRestaurant.includes(filteredRestaurant)) return restaurant;
+      })
+      .filter((restaurant) => {
+        const currentFoodType = restaurant.food_type.toLowerCase();
+        const filteredFoodType = filter.food_type.toLowerCase();
+        if (currentFoodType.includes(filteredFoodType)) return restaurant;
+      });
     setRestaurants(filteredData);
   };
 
@@ -39,7 +49,7 @@ const Home = () => {
     <>
       <h1>Home</h1>
       <Link to="/new">Add restaurant</Link>
-      <FilterBar onTitleFilter={handleFilterTitle} />
+      <FilterBar handleFilter={handleFilter} />
       {isLoading ? (
         <p>Is loading ...</p>
       ) : !restaurants.length ? (

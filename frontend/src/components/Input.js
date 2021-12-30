@@ -13,7 +13,8 @@ const Input = ({
   checked = false,
   onChange,
 }) => {
-  const label = name.charAt(0).toUpperCase() + name.slice(1);
+  const characters = name.split("_").join(" ");
+  const label = characters.charAt(0).toUpperCase() + characters.slice(1);
 
   return (
     <div>

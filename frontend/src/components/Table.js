@@ -5,9 +5,7 @@ const Table = ({ data, handleDelete }) => {
   const [restaurants, setRestaurants] = useState(data);
   const [ascendant, setAscendant] = useState(true);
 
-  useEffect(() => {
-    setRestaurants(data);
-  }, [data]);
+  useEffect(() => setRestaurants(data), [data]);
 
   const sortingTable = (column) => {
     const sorted = [...restaurants].sort((a, b) => {
