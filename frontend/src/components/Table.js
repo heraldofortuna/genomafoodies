@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "../styles/table.css";
 
 const Table = ({ data, handleDelete }) => {
   const [restaurants, setRestaurants] = useState(data);
@@ -20,7 +21,7 @@ const Table = ({ data, handleDelete }) => {
   };
 
   return (
-    <table>
+    <table className="table">
       <thead>
         <tr>
           <th onClick={() => sortingTable("title")}>Title</th>
