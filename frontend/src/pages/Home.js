@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import FilterBar from "../components/FilterBar";
 import Table from "../components/Table";
 import {
   getRestaurants,
@@ -12,11 +13,7 @@ const Home = () => {
 
   const loadRestaurants = async () => {
     const response = await getRestaurants();
-
-    if (response.status === 200) {
-      setRestaurants(response.data);
-    }
-
+    if (response.status === 200) setRestaurants(response.data);
     setIsLoading(false);
   };
 
@@ -29,10 +26,20 @@ const Home = () => {
     loadRestaurants();
   };
 
+  const handleFilterTitle = async (title) => {
+    const response = await getRestaurants();
+    const filteredData = response.data.filter((restaurant) => {
+      let lowerTitle = restaurant.title.toLowerCase();
+      if (lowerTitle.includes(title.toLowerCase())) return restaurant;
+    });
+    setRestaurants(filteredData);
+  };
+
   return (
     <>
       <h1>Home</h1>
       <Link to="/new">Add restaurant</Link>
+      <FilterBar onTitleFilter={handleFilterTitle} />
       {isLoading ? (
         <p>Is loading ...</p>
       ) : !restaurants.length ? (

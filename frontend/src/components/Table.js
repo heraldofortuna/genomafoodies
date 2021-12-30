@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Table = ({ data, handleDelete }) => {
   const [restaurants, setRestaurants] = useState(data);
   const [ascendant, setAscendant] = useState(true);
+
+  useEffect(() => {
+    setRestaurants(data);
+  }, [data]);
 
   const sortingTable = (column) => {
     const sorted = [...restaurants].sort((a, b) => {
