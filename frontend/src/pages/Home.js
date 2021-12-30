@@ -46,7 +46,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div className="wrapper">
       <h1>Home</h1>
       <Link to="/new" className="button">
         Add restaurant
@@ -59,7 +59,7 @@ const Home = () => {
       ) : (
         <Table data={restaurants} handleDelete={handleDelete} />
       )}
-    </>
+    </div>
   );
 };
 

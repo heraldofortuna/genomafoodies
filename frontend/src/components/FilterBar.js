@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Input from "./Input";
+import "../styles/filterbar.css"
 
 const FilterBar = ({ handleFilter }) => {
   const [filter, setFilter] = useState({
@@ -18,7 +19,7 @@ const FilterBar = ({ handleFilter }) => {
   };
 
   return (
-    <div>
+    <div className="filterbar">
       <Input name="title" value={title} onChange={onChangeFilter} />
       <Input name="ubication" value={ubication} onChange={onChangeFilter} />
       <Input name="food_type" value={food_type} onChange={onChangeFilter} />

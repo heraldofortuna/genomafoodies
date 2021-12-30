@@ -1,0 +1,7 @@
+.filterbar {
+  border: 1px solid green;
+  width: 100%;
+  /** Flexbox styles **/
+  display: flex;
+  gap: 4px;
+}
