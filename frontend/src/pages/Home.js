@@ -48,7 +48,9 @@ const Home = () => {
   return (
     <>
       <h1>Home</h1>
-      <Link to="/new">Add restaurant</Link>
+      <Link to="/new" className="button">
+        Add restaurant
+      </Link>
       <FilterBar handleFilter={handleFilter} />
       {isLoading ? (
         <p>Is loading ...</p>

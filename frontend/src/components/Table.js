@@ -43,10 +43,19 @@ const Table = ({ data, handleDelete }) => {
                 <input type="checkbox" checked={visited} readOnly />
               </td>
               <td>
-                <Link to={`/edit/${restaurant.id}`} state={restaurant}>
-                  <button>Edit</button>
+                <Link
+                  className="button button--edit"
+                  to={`/edit/${restaurant.id}`}
+                  state={restaurant}
+                >
+                  Edit
                 </Link>
-                <button onClick={() => handleDelete(restaurant)}>Delete</button>
+                <button
+                  className="button button--delete"
+                  onClick={() => handleDelete(restaurant)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           );

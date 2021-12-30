@@ -8,7 +8,7 @@ const EditRestaurant = () => {
   return (
     <>
       <h1>Edit Restaurant</h1>
-      <Form isToEdit restaurant={state} />
+      <Form isToEdit data={state} />
     </>
   );
 };

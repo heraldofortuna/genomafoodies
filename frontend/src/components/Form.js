@@ -74,8 +74,12 @@ const Form = ({ isToEdit, data }) => {
         checked={visited}
         onChange={handleChange}
       />
-      <button type="submit">Save</button>
-      <Link to="/">Cancel</Link>
+      <button className="button button--save" type="submit">
+        Save
+      </button>
+      <Link className="button button--cancel" to="/">
+        Cancel
+      </Link>
     </form>
   );
 };
