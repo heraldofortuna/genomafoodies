@@ -1,12 +1,13 @@
 import React from "react";
+import Header from "../components/Header"
 import Form from "../components/Form";
 
 const NewRestaurant = () => {
   return (
-    <>
-      <h1>Add Restaurant</h1>
+    <div className="wrapper">
+      <Header />
       <Form />
-    </>
+    </div>
   );
 };
 

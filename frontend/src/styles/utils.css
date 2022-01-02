@@ -2,6 +2,10 @@
   border: 1px solid blue;
   width: 95%;
   margin: 0 auto;
+  /** Flexbox styles **/
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .title {

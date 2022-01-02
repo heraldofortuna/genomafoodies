@@ -1,6 +1,25 @@
-.header__container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.header {
+  height: 80px;
+  border-bottom: 1px solid var(--color-gray);
+  /** Grid CSS styles **/
+  display: grid;
+  place-items: center;
 }
 
+.header__container {
+  width: 100%;
+  position: relative;
+  /** Flexbox styles **/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__logo {
+  width: 300px;
+}
+
+.header__icon--new {
+  position: absolute;
+  right: 0;
+}
