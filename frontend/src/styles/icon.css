@@ -1,0 +1,25 @@
+.icon {
+  cursor: pointer;
+}
+
+.icon svg {
+  font-size: 20px;
+  transition: 0.4s all;
+}
+
+.icon svg:hover {
+  transform: scale(1.2);
+}
+
+.icon--new svg {
+  font-size: 30px;
+  fill: var(--color-blue);
+}
+
+.icon--edit svg {
+  fill: var(--color-gray);
+}
+
+.icon--delete svg {
+  fill: var(--color-red);
+}

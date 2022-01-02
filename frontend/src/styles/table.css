@@ -19,3 +19,11 @@
   text-align: center;
   padding: 0 6px;
 }
+
+.table .table__actions {
+  width: fit-content;
+  /** Flexbox styles **/
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

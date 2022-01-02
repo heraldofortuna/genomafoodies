@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/table.css";
+import Icon from "./Icon";
+import { MdModeEdit, MdDeleteForever } from "react-icons/md";
 
 const Table = ({ data, handleDelete }) => {
   const [restaurants, setRestaurants] = useState(data);
@@ -43,20 +45,15 @@ const Table = ({ data, handleDelete }) => {
               <td>
                 <input type="checkbox" checked={visited} readOnly />
               </td>
-              <td>
-                <Link
-                  className="button button--edit"
-                  to={`/edit/${restaurant.id}`}
-                  state={restaurant}
-                >
-                  Edit
+              <td className="table__actions">
+                <Link to={`/edit/${restaurant.id}`} state={restaurant}>
+                  <Icon children={<MdModeEdit />} action="edit" />
                 </Link>
-                <button
-                  className="button button--delete"
+                <Icon
+                  children={<MdDeleteForever />}
                   onClick={() => handleDelete(restaurant)}
-                >
-                  Delete
-                </button>
+                  action="delete"
+                />
               </td>
             </tr>
           );
