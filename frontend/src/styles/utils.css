@@ -3,3 +3,14 @@
   width: 95%;
   margin: 0 auto;
 }
+
+.title {
+  font: var(--font-title);
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

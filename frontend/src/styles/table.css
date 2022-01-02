@@ -1,6 +1,6 @@
 .table {
   border: 1px solid red;
-  width: 90%;
+  width: 100%;
 }
 
 .table thead {
@@ -10,7 +10,7 @@
 .table th {
   font: var(--font-table-head);
   text-align: center;
-  padding: 0 6px;
+  padding: 6px 0 12px 0;
 }
 
 .table td {

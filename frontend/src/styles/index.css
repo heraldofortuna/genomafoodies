@@ -5,6 +5,7 @@
 
 :root {
   --font-body: normal normal normal 16px/20px "Roboto", sans-serif;
+  --font-title: normal normal normal 18px/22px "Roboto", sans-serif;
   --font-button: normal normal normal 14px/18px "Inter", sans-serif;
   --font-input-label: normal normal normal 14px/18px "Inter", sans-serif;
   --font-input-element: normal normal normal 14px/18px "Roboto", sans-serif;

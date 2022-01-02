@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import FilterBar from "../components/FilterBar";
+import Header from "../components/Header";
 import Table from "../components/Table";
 import {
   getRestaurants,
@@ -47,11 +46,7 @@ const Home = () => {
 
   return (
     <div className="wrapper">
-      <h1>Home</h1>
-      <Link to="/new" className="button">
-        Add restaurant
-      </Link>
-      <FilterBar handleFilter={handleFilter} />
+      <Header title="Genoma Foodies" isHome handleFilter={handleFilter} />
       {isLoading ? (
         <p>Is loading ...</p>
       ) : !restaurants.length ? (
