@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/form.css";
 import Input from "./Input";
 import Select from "./Select";
+import Button from "./Button";
 import {
   addRestaurant,
   updateRestaurant,
@@ -77,11 +78,9 @@ const Form = ({ label, isToEdit, data }) => {
         onChange={handleChange}
       />
       <div className="form__buttons">
-        <button className="button button--save" type="submit">
-          Save
-        </button>
-        <Link className="button button--cancel" to="/">
-          Cancel
+        <Button text="Save" type="submit" action="new" />
+        <Link to="/">
+          <Button text="Cancel" action="cancel" />
         </Link>
       </div>
     </form>

@@ -1,14 +1,14 @@
 # Genoma Foodies
 
-![Project Image](./src/assets/screenshot1.png)
+![Project Image](./frontend/src/assets/screenshot1.png)
 
 > Screenshot - Home page
 
-![Project Image](./src/assets/screenshot2.png)
+![Project Image](./frontend/src/assets/screenshot2.png)
 
 > Screenshot - Add a new Restaurant
 
-![Project Image](./src/assets/screenshot3.png)
+![Project Image](./frontend/src/assets/screenshot3.png)
 
 > Screenshot - Edit a Restaurant
 

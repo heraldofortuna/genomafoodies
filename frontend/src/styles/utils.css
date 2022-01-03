@@ -1,5 +1,6 @@
 .wrapper {
   width: 95%;
+  padding-bottom: 80px;
   margin: 0 auto;
   /** Flexbox styles **/
   display: flex;
@@ -8,7 +9,6 @@
 }
 
 .container {
-  padding: 0 0 40px 0;
   /** Flexbox styles **/
   display: flex;
   flex-direction: column;

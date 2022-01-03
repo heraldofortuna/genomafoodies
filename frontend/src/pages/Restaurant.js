@@ -3,27 +3,25 @@ import { useLocation } from "react-router-dom";
 import Form from "../components/Form";
 
 const Restaurant = ({ action }) => {
-  const label = {
-    new: "Add a new restaurant",
-    edit: "Edit this restaurant",
-  };
-
-  const data = {
-    new: [],
-    edit: useLocation().state,
-  };
-
-  const isToEdit = {
-    new: false,
-    edit: true,
+  const values = {
+    new: {
+      label: "Add a new restaurant",
+      isToEdit: false,
+      data: [],
+    },
+    edit: {
+      label: "Edit restaurant",
+      isToEdit: true,
+      data: useLocation().state,
+    },
   };
 
   return (
     <main className="container">
       <Form
-        label={label[action]}
-        isToEdit={isToEdit[action]}
-        data={data[action]}
+        label={values[action].label}
+        isToEdit={values[action].isToEdit}
+        data={values[action].data}
       />
     </main>
   );

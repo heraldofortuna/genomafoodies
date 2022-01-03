@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Roboto:wght@400;700;900&display=swap");
 @import url("./utils.css");
 
-@import url("./button.css");
-
 :root {
   --font-body: normal normal normal 16px/20px "Roboto", sans-serif;
   --font-title: normal normal normal 18px/22px "Roboto", sans-serif;
