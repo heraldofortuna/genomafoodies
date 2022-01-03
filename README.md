@@ -130,7 +130,11 @@ https://reactjs.org/docs/getting-started.html
 
 ## Comments
 
-- had a problem this year-end holiday so I was 2 whole days late. I sincerely hope that there is still time to deliver the project and you can review it.
+- You can filter the table, in addition to sorting in ascending and descending order with respect to various fields.
+
+- The application is responsive.
+
+- I had a problem this year-end holiday so I was 2 whole days late. I sincerely hope that there is still time to deliver the project and you can review it.
 
 [Go up](#genoma-foodies)
 
