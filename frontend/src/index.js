@@ -8,6 +8,7 @@ import "./styles/index.css";
 
 ReactDOM.render(
   <React.StrictMode>
+    <div className="wrapper">
     <Router>
       <Routes>
         <Route exact path="/edit/:id" element={<EditRestaurant />} />
@@ -15,6 +16,7 @@ ReactDOM.render(
         <Route exact path="/" element={<Home />} />
       </Routes>
     </Router>
+    </div>
   </React.StrictMode>,
   document.getElementById("root")
 );

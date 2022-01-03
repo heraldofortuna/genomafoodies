@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Input from "./Input";
-import "../styles/filterbar.css"
+import "../styles/filterbar.css";
 
 const FilterBar = ({ handleFilter }) => {
   const [filter, setFilter] = useState({
@@ -19,11 +19,14 @@ const FilterBar = ({ handleFilter }) => {
   };
 
   return (
-    <div className="filterbar">
-      <Input name="title" value={title} onChange={onChangeFilter} />
-      <Input name="ubication" value={ubication} onChange={onChangeFilter} />
-      <Input name="food_type" value={food_type} onChange={onChangeFilter} />
-    </div>
+    <section className="filterbar">
+      <h2 className="filterbar__title">Filter by</h2>
+      <div className="filterbar__inputs">
+        <Input name="title" value={title} onChange={onChangeFilter} />
+        <Input name="ubication" value={ubication} onChange={onChangeFilter} />
+        <Input name="food_type" value={food_type} onChange={onChangeFilter} />
+      </div>
+    </section>
   );
 };
 

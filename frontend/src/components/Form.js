@@ -39,8 +39,8 @@ const Form = ({ label, isToEdit, data }) => {
   };
 
   return (
-    <main>
-      <h2 className="form__label">{label}</h2>
+    <>
+      <h2 className="form__title">{label}</h2>
       <form className="form__element" onSubmit={handleSubmit}>
         <Input
           name="title"
@@ -86,7 +86,7 @@ const Form = ({ label, isToEdit, data }) => {
           </Link>
         </div>
       </form>
-    </main>
+    </>
   );
 };
 

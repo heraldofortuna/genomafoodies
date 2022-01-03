@@ -12,6 +12,7 @@ const Input = ({
   min,
   max,
   checked = false,
+  readOnly,
   onChange,
 }) => {
   const characters = name.split("_").join(" ");
@@ -19,7 +20,7 @@ const Input = ({
 
   return (
     <div className="input__container">
-      <label className="input__label">{label}</label>
+      {!readOnly && <label className="input__label">{label}</label>}
       <input
         className="input__element"
         type={type}
@@ -32,6 +33,7 @@ const Input = ({
         min={min}
         max={max}
         checked={checked}
+        readOnly={readOnly}
         onChange={onChange}
       />
     </div>

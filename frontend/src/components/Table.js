@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/table.css";
+import Input from "./Input";
 import Icon from "./Icon";
 import { MdModeEdit, MdDeleteForever } from "react-icons/md";
 
@@ -43,7 +44,12 @@ const Table = ({ data, handleDelete }) => {
               <td>{food_type}</td>
               <td>{score}</td>
               <td>
-                <input type="checkbox" checked={visited} readOnly />
+                <Input
+                  type="checkbox"
+                  name="visited"
+                  checked={visited}
+                  readOnly={true}
+                />
               </td>
               <td className="table__actions">
                 <Link to={`/edit/${restaurant.id}`} state={restaurant}>

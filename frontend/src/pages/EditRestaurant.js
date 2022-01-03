@@ -7,10 +7,12 @@ const EditRestaurant = () => {
   const { state } = useLocation();
 
   return (
-    <div className="wrapper">
+    <>
       <Header />
-      <Form label="Edit this restaurant" isToEdit data={state} />
-    </div>
+      <main className="container">
+        <Form label="Edit this restaurant" isToEdit data={state} />
+      </main>
+    </>
   );
 };
 

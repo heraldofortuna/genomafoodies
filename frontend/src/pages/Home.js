@@ -46,17 +46,19 @@ const Home = () => {
   };
 
   return (
-    <div className="wrapper">
+    <>
       <Header isHome />
-      <FilterBar handleFilter={handleFilter} />
-      {isLoading ? (
-        <p>Is loading ...</p>
-      ) : !restaurants.length ? (
-        <p>You don't have restaurants in your list</p>
-      ) : (
-        <Table data={restaurants} handleDelete={handleDelete} />
-      )}
-    </div>
+      <main className="container">
+        <FilterBar handleFilter={handleFilter} />
+        {isLoading ? (
+          <p>Is loading ...</p>
+        ) : !restaurants.length ? (
+          <p>You don't have restaurants in your list</p>
+        ) : (
+          <Table data={restaurants} handleDelete={handleDelete} />
+        )}
+      </main>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
-.form__label {
+.form__title {
   width: fit-content;
   padding-bottom: 6px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 20px auto;
   border-bottom: 1px solid var(--color-blue);
   /** Font styles **/
   font-size: 20px;

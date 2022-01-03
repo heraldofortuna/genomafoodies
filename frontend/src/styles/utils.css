@@ -8,13 +8,15 @@
   gap: 20px;
 }
 
+.container {
+  padding: 0 0 40px 0;
+  /** Flexbox styles **/
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .title {
   font: var(--font-title);
   text-align: center;
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
 }
