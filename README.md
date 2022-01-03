@@ -124,6 +124,12 @@ ReactJS official documentation:
 https://reactjs.org/docs/getting-started.html
 ```
 
+Loader component:
+
+```html
+https://icons8.com/cssload/en/horizontal-bars
+```
+
 [Go up](#genoma-foodies)
 
 ---

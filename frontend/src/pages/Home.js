@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Loader from "../components/Loader";
 import Table from "../components/Table";
 import FilterBar from "../components/FilterBar";
 import {
@@ -44,18 +45,14 @@ const Home = () => {
   };
 
   return (
-    <>
-      <main className="container">
-        <FilterBar handleFilter={handleFilter} />
-        {isLoading ? (
-          <p>Is loading ...</p>
-        ) : !restaurants.length ? (
-          <p>You don't have restaurants in your list</p>
-        ) : (
-          <Table data={restaurants} handleDelete={handleDelete} />
-        )}
-      </main>
-    </>
+    <main className="container">
+      <FilterBar handleFilter={handleFilter} />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <Table data={restaurants} handleDelete={handleDelete} />
+      )}
+    </main>
   );
 };
 

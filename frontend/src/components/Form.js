@@ -12,7 +12,7 @@ const Form = ({ label, isToEdit, data }) => {
   const [newRestaurant, setNewRestaurant] = useState({
     title: isToEdit ? data.title : "",
     ubication: isToEdit ? data.ubication : "",
-    food_type: isToEdit ? data.food_type : "",
+    food_type: isToEdit ? data.food_type : "Breakfast",
     score: isToEdit ? data.score : 0,
     visited: isToEdit ? data.visited : false,
   });

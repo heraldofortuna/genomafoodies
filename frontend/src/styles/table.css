@@ -16,6 +16,10 @@
   background-color: var(--color-pink);
 }
 
+.table tr {
+  height: fit-content;
+}
+
 .table td {
   height: 50px;
   font: var(--font-table-body);
