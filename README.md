@@ -46,13 +46,7 @@ You must implement a web application that allows keep track of different places 
 
 ### Prepare and run the backend:
 
-First, after cloning the project locally, navigate into the directory:
-
-```html
-$ cd backend
-```
-
-Now install Pipenv using pip: (Note: Depending on your installation, you may need to use pip3 instead of pip.)
+First, after cloning the project locally, install Pipenv using pip: (Note: Depending on your installation, you may need to use pip3 instead of pip.)
 
 ```html
 $ pip install pipenv
@@ -62,6 +56,18 @@ And activate a new virtual environment:
 
 ```html
 $ pipenv shell
+```
+
+Install Django using Pipenv:
+
+```html
+$ pipenv install django
+```
+
+Now, navigate into the directory:
+
+```html
+$ cd backend
 ```
 
 Run migrations:
@@ -86,7 +92,7 @@ First, navigate into the directory:
 $ cd frontend
 ```
 
-Next, install dependencies using yarn:
+Next, install dependencies using yarn (node version v16.13.1):
 
 ```html
 yarn install
@@ -137,6 +143,8 @@ https://icons8.com/cssload/en/horizontal-bars
 ## Comments
 
 - You can filter the table, in addition to sorting in ascending and descending order with respect to various fields.
+
+- Honestly, I managed to finish all the application requirements except one: Filtered by backend. I feel like I lacked time and knowledge about backend.
 
 - The application is responsive.
 
