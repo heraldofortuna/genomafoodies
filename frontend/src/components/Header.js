@@ -6,7 +6,11 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <img className="header__logo" src={logo} />
+        <img
+          className="header__logo"
+          src={logo}
+          alt="Official logo of Genoma Foodies"
+        />
       </div>
     </header>
   );

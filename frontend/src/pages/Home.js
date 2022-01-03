@@ -26,21 +26,20 @@ const Home = () => {
   const handleFilter = async (filter) => {
     const response = await getRestaurants();
     const filteredData = response.data
-      .filter((restaurant) => {
-        const currentTitle = restaurant.title.toLowerCase();
-        const filteredTitle = filter.title.toLowerCase();
-        if (currentTitle.includes(filteredTitle)) return restaurant;
-      })
-      .filter((restaurant) => {
-        const currentRestaurant = restaurant.ubication.toLowerCase();
-        const filteredRestaurant = filter.ubication.toLowerCase();
-        if (currentRestaurant.includes(filteredRestaurant)) return restaurant;
-      })
-      .filter((restaurant) => {
-        const currentFoodType = restaurant.food_type.toLowerCase();
-        const filteredFoodType = filter.food_type.toLowerCase();
-        if (currentFoodType.includes(filteredFoodType)) return restaurant;
-      });
+      .filter((restaurant) =>
+        restaurant.title.toLowerCase().includes(filter.title.toLowerCase())
+      )
+      .filter((restaurant) =>
+        restaurant.ubication
+          .toLowerCase()
+          .includes(filter.ubication.toLowerCase())
+      )
+      .filter((restaurant) =>
+        restaurant.food_type
+          .toLowerCase()
+          .includes(filter.food_type.toLowerCase())
+      );
+
     setRestaurants(filteredData);
   };
 
@@ -53,7 +52,7 @@ const Home = () => {
         ) : !restaurants.length ? (
           <p>You don't have restaurants in your list</p>
         ) : (
-            <Table data={restaurants} handleDelete={handleDelete} />
+          <Table data={restaurants} handleDelete={handleDelete} />
         )}
       </main>
     </>
