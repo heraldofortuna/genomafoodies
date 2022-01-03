@@ -2,19 +2,15 @@
 
 ![Project Image](./src/assets/screenshot1.png)
 
-> Screenshot - Home page - Mobile size
+> Screenshot - Home page
 
 ![Project Image](./src/assets/screenshot2.png)
 
-> Screenshot - Home page - Mobile size
+> Screenshot - Add a new Restaurant
 
 ![Project Image](./src/assets/screenshot3.png)
 
-> Screenshot - Character page - Desktop size
-
-![Project Image](./src/assets/screenshot4.png)
-
-> Screenshot - Character page - Desktop size
+> Screenshot - Edit a Restaurant
 
 ---
 
@@ -30,7 +26,7 @@
 
 ## Description
 
-Web or mobile application that allows us to navigate the Star Wars GraphQL API. If we click on each of the characters' cards, we can see their detailed information.
+You must implement a web application that allows keep track of different places to eat. The application is quite simple: so you only need to display a table that shows the information from the database. It is not registration or login is required.
 
 ### Technologies
 
@@ -40,6 +36,7 @@ Web or mobile application that allows us to navigate the Star Wars GraphQL API. 
 - CSS
 - JavaScript
 - ReactJS
+- SQLite
 
 [Go up](#genoma-foodies)
 
@@ -47,15 +44,53 @@ Web or mobile application that allows us to navigate the Star Wars GraphQL API. 
 
 ## How to use?
 
-### Installation:
+### Prepare and run the backend:
 
-Enter and run the following sentence in your console:
+First, after cloning the project locally, navigate into the directory:
+
+```html
+$ cd backend
+```
+
+Now install Pipenv using pip: (Note: Depending on your installation, you may need to use pip3 instead of pip.)
+
+```html
+$ pip install pipenv
+```
+
+And activate a new virtual environment:
+
+```html
+$ pipenv shell
+```
+
+Run migrations:
+
+```html
+$ python3 manage.py migrate
+```
+
+And start up the server:
+
+```html
+$ python3 manage.py runserver
+```
+
+Finally, navigate to http://localhost:8000 in your web browser.
+
+### Prepare and run the frontend:
+
+First, navigate into the directory:
+
+```html
+$ cd frontend
+```
+
+Next, install dependencies using yarn:
 
 ```html
 yarn install
 ```
-
-### Run the project:
 
 Enter and run the following sentence in your console:
 
@@ -67,20 +102,26 @@ to enter developer mode.
 
 Finally, open [http://localhost:3000](http://localhost:3000) to see it in your default browser.
 
-### API References
-
-```html
-https://swapi-graphql.netlify.app/.netlify/functions/index
-```
-
-[Go up](#genoma-foodies)
-
 ---
 
 ## References
 
+Tutorial of DigitalOcean community:
+
 ```html
-https://www.figma.com/file/Ceoqa8DbrtyKoOBDR77ktm/Ravn-Code-Challenge?node-id=0%3A1
+https://www.digitalocean.com/community/tutorials/build-a-to-do-application-using-django-and-react
+```
+
+Django official documentation:
+
+```html
+https://docs.djangoproject.com/en/4.0/
+```
+
+ReactJS official documentation:
+
+```html
+https://reactjs.org/docs/getting-started.html
 ```
 
 [Go up](#genoma-foodies)
@@ -89,11 +130,7 @@ https://www.figma.com/file/Ceoqa8DbrtyKoOBDR77ktm/Ravn-Code-Challenge?node-id=0%
 
 ## Comments
 
-- Is my first time using GraphQL, so probably, my Apollo Client implementation is very basic.
-
-- Due to the design, I couldn't use the router hook so I assumed that I had to create conditionals regarding the screen width.
-
-- I didn't have time to implement the loading functionality for the first 5 characters. My apologies.
+- had a problem this year-end holiday so I was 2 whole days late. I sincerely hope that there is still time to deliver the project and you can review it.
 
 [Go up](#genoma-foodies)
 
