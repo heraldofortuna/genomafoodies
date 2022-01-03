@@ -1,4 +1,5 @@
 .input__container {
+  /** Flexbox styles **/
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -11,7 +12,43 @@
 .input__element {
   border: 1px solid var(--color-gray);
   border-radius: 2px;
-  padding: 4px;
+  padding: 8px;
   /** Font styles **/
   font: var(--font-input-element);
+}
+
+.input__element[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 40px;
+  width: 40px;
+  background-color: var(--color-white);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.4s all;
+  /** Flexbox styles **/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input__element[type="checkbox"]:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f00c";
+  font-size: 25px;
+  color: white;
+  display: none;
+}
+
+.input__element[type="checkbox"]:hover {
+  background-color: var(--color-blue);
+}
+
+.input__element[type="checkbox"]:checked {
+  background-color: var(--color-blue);
+}
+
+.input__element[type="checkbox"]:checked::after {
+  display: block;
 }
