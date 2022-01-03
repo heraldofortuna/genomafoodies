@@ -1,5 +1,4 @@
 .wrapper {
-  border: 1px solid blue;
   width: 95%;
   margin: 0 auto;
   /** Flexbox styles **/
@@ -18,5 +17,9 @@
 
 .title {
   font: var(--font-title);
+  text-align: center;
+}
+
+.newRestaurant {
   text-align: center;
 }

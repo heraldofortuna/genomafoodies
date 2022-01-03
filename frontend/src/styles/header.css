@@ -18,8 +18,3 @@
 .header__logo {
   width: 300px;
 }
-
-.header__icon--new {
-  position: absolute;
-  right: 0;
-}
