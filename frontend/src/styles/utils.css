@@ -15,11 +15,15 @@
   gap: 20px;
 }
 
-.title {
-  font: var(--font-title);
-  text-align: center;
-}
+@media (min-width: 1025px) {
+  .wrapper {
+    width: 90%;
+    gap: 40px;
+  }
 
-.newRestaurant {
-  text-align: center;
+  .container {
+    /** Flexbox styles **/
+    flex-direction: row;
+    gap: 40px;
+  }
 }

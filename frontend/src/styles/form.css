@@ -1,3 +1,13 @@
+.form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  /** Flexbox styles **/
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .form__title {
   width: fit-content;
   padding-bottom: 6px;
@@ -7,13 +17,6 @@
   font-size: 20px;
 }
 
-.form__element {
-  /** Flexbox styles **/
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .form__buttons {
   width: 100%;
   margin-top: 20px;
@@ -21,4 +24,13 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+@media (min-width: 1025px) {
+  .form__buttons {
+    /** Grid CSS styles **/
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 }

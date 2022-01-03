@@ -1,6 +1,5 @@
 .header {
   height: 80px;
-  border-bottom: 1px solid var(--color-gray);
   /** Grid CSS styles **/
   display: grid;
   place-items: center;
@@ -17,4 +16,14 @@
 
 .header__logo {
   width: 300px;
+}
+
+@media (min-width: 1025px) {
+  .header {
+    height: 100px;
+  }
+
+  .header__logo {
+    width: 500px;
+  }
 }

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/table.css";
+import { MdAddCircle, MdModeEdit, MdDeleteForever } from "react-icons/md";
+import Icon from "../components/Icon";
 import Input from "./Input";
-import Icon from "./Icon";
-import { MdModeEdit, MdDeleteForever } from "react-icons/md";
 
 const Table = ({ data, handleDelete }) => {
   const [restaurants, setRestaurants] = useState(data);
@@ -65,6 +65,15 @@ const Table = ({ data, handleDelete }) => {
           );
         })}
       </tbody>
+      <tfoot>
+        <tr className="table__add">
+          <td>
+            <Link to="/new">
+              <Icon children={<MdAddCircle />} action="new" />
+            </Link>
+          </td>
+        </tr>
+      </tfoot>
     </table>
   );
 };

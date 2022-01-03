@@ -1,29 +1,47 @@
 .table {
-  border: 1px solid red;
   width: 100%;
-}
-
-.table thead {
-  border: 1px solid var(--color-gray);
+  border-collapse: collapse;
 }
 
 .table th {
   font: var(--font-table-head);
   text-align: center;
-  padding: 6px 0 12px 0;
+  padding: 6px 0 18px 0;
 }
 
 .table td {
-  border: 1px solid peru;
+  height: 50px;
   font: var(--font-table-body);
   text-align: center;
+  border-bottom: 1px solid var(--color-gray);
   padding: 0 6px;
+}
+
+.table .input__container {
+  align-items: center;
+  justify-content: center;
 }
 
 .table .table__actions {
   width: fit-content;
+  border-bottom: none;
   /** Flexbox styles **/
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.table tfoot {
+  position: relative;
+}
+
+.table__add {
+  display: flex;
+  position: absolute;
+  left: 45%;
+  margin-top: 20px;
+}
+
+.table__add td {
+  border-bottom: none;
 }

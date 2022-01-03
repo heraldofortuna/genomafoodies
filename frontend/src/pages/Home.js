@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { MdAddCircle } from "react-icons/md";
-import Icon from "../components/Icon";
 import Table from "../components/Table";
 import FilterBar from "../components/FilterBar";
-import Header from "../components/Header";
 import {
   getRestaurants,
   deleteRestaurant,
@@ -57,12 +53,7 @@ const Home = () => {
         ) : !restaurants.length ? (
           <p>You don't have restaurants in your list</p>
         ) : (
-          <>
             <Table data={restaurants} handleDelete={handleDelete} />
-            <Link className="newRestaurant" to="/new">
-              <Icon children={<MdAddCircle />} action="new" />
-            </Link>
-          </>
         )}
       </main>
     </>
